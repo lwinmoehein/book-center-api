@@ -7,6 +7,8 @@ use App\Http\Controllers\TokenController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/books',[BookController::class,'index']);
 });
 Route::get('/books',[BookController::class,'index']);
+Route::get('/categories',[CategoryController::class,'index']);
+Route::get('/authors',[AuthorController::class,'index']);
