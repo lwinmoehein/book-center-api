@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdatePreferedCategories;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -68,5 +70,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateCategories(UpdatePreferedCategories $request){
+        Auth::user()->categories()->sync($request->category_ids);
+        return  response()->json(["message" => "success"], 200);
+
     }
 }

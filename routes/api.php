@@ -34,7 +34,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/messages', [MessageController::class, 'index']);
 
   Route::get('/books',[BookController::class,'index']);
+  Route::get('/categories',[CategoryController::class,'index']);
+  Route::get('/authors',[AuthorController::class,'index']);
+
+  Route::post('/users/category',[UserController::class,'updateCategories']);
+  Route::get('/books/category',[BookController::class,'forYou']);
+
 });
-Route::get('/books',[BookController::class,'index']);
-Route::get('/categories',[CategoryController::class,'index']);
-Route::get('/authors',[AuthorController::class,'index']);
+

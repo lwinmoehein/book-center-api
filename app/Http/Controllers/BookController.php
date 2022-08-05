@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Resources\BookResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class BookController extends Controller
 {
@@ -20,6 +22,16 @@ class BookController extends Controller
         return BookResource::collection($books);
     }
 
+
+    public function forYou()
+    {
+        //
+        $userCategories = Auth::user()->categories->pluck('id');
+        $books = Book::whereHas('categories', function($q) use($userCategories) {
+            $q->whereIn('categories.id', $userCategories);
+        })->paginate(6);
+        return BookResource::collection($books);
+    }
     /**
      * Show the form for creating a new resource.
      *

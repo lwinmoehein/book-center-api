@@ -25,7 +25,7 @@ class Category extends Model
      * @var array
      */
     protected $hidden = [
-    
+
     ];
 
     /**
@@ -38,6 +38,10 @@ class Category extends Model
 
     public function books(){
         return $this->belongsToMany(Book::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
     }
 
 }
