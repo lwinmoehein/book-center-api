@@ -21,7 +21,7 @@ class BookFactory extends Factory
         return [
             'code' => $this->faker->name(),
             'title' => $this->faker->text(),
-            'cover_url' => $this->faker->name(),
+            'cover_url' => 'https://source.unsplash.com/random',
             'description'=>$this->faker->text(),
             'price'=>$this->faker->numberBetween(200,3000),
             'published_at'=>now()
