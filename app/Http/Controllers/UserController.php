@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePreferedCategories;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\CategoryResource;
 
 
 class UserController extends Controller
@@ -70,6 +71,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function categories(){
+        $categories = Auth::user()->categories;
+        return CategoryResource::collection($categories);
     }
 
     public function updateCategories(UpdatePreferedCategories $request){
