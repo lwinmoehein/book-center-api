@@ -37,6 +37,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/books',[BookController::class,'index']);
 
   Route::get('/categories',[CategoryController::class,'index']);
+  Route::get('/categories/{category}',[CategoryController::class,'show']);
+
   Route::resource('/languages',LanguageController::class);
   Route::get('/authors',[AuthorController::class,'index']);
 

@@ -51,6 +51,11 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        $category = $category->load('books');
+        return response()->json([
+            "data"=>$category
+        ]);
+
     }
 
     /**
