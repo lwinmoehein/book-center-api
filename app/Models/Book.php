@@ -29,7 +29,7 @@ class Book extends Model
      * @var array
      */
     protected $hidden = [
-    
+
     ];
 
     /**
@@ -48,6 +48,10 @@ class Book extends Model
 
     public function categories(){
         return $this->belongsToMany(Category::class);
+    }
+
+    public function languages(){
+        return $this->belongsToMany(Language::class);
     }
 
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
   Route::get('/books',[BookController::class,'index']);
   Route::get('/categories',[CategoryController::class,'index']);
+  Route::resource('/languages',LanguageController::class);
   Route::get('/authors',[AuthorController::class,'index']);
 
   Route::post('/users/category',[UserController::class,'updateCategories']);
