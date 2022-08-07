@@ -54,4 +54,18 @@ class Book extends Model
         return $this->belongsToMany(Language::class);
     }
 
+    public function scopeLanguaged($query,$languages)
+    {
+        return $query->whereHas('languages', function($q) use($languages) {
+            $q->whereIn('languages.id', $languages);
+        });
+    }
+
+    public function scopeCategorized($query,$categories)
+    {
+        return $query->whereHas('categories', function($q) use($categories) {
+            $q->whereIn('categories.id', $categories);
+        });
+    }
+
 }

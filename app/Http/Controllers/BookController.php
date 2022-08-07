@@ -6,7 +6,6 @@ use App\Models\Book;
 use App\Http\Resources\BookResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder;
 
 class BookController extends Controller
 {
@@ -18,10 +17,21 @@ class BookController extends Controller
     public function index()
     {
         //
-        $languageId = request()->language;
-        $books = Book::whereHas('languages', function($q) use($languageId) {
-            $q->where('languages.id','=', $languageId);
-        })->with('languages')->paginate(6);
+        $languages = request()->languages;
+        $categories = request()->categories;
+
+        if ($languages != null)
+            $languages = explode(',', $languages);
+        if ($categories != null)
+            $categories = explode(',', $categories);
+
+        $booksQuery = Book::query();
+        if ($languages != null && count($languages) > 0)
+            $booksQuery = $booksQuery->languaged($languages);
+        if ($categories != null && count($categories) > 0)
+            $booksQuery = $booksQuery->categorized($categories);
+
+        $books = $booksQuery->paginate(6)->appends(request()->except(['page', '_token']));
         return BookResource::collection($books);
     }
 
@@ -30,9 +40,17 @@ class BookController extends Controller
     {
         //
         $userCategories = Auth::user()->categories->pluck('id');
-        $books = Book::whereHas('categories', function($q) use($userCategories) {
-            $q->whereIn('categories.id', $userCategories);
-        })->paginate(6);
+        $languages = request()->languages;
+
+        $bookQuery = Book::query()->categorized($userCategories);
+
+        if ($languages != null)
+            $languages = explode(',', $languages);
+
+        if($languages!=null && count($languages)>0)
+            $bookQuery = $bookQuery->languaged($languages);
+
+        $books = $bookQuery->paginate(6)->appends(request()->except(['page', '_token']));
         return BookResource::collection($books);
     }
     /**
