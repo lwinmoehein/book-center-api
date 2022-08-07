@@ -18,7 +18,10 @@ class BookController extends Controller
     public function index()
     {
         //
-        $books = Book::paginate(6);
+        $languageId = request()->language;
+        $books = Book::whereHas('languages', function($q) use($languageId) {
+            $q->where('languages.id','=', $languageId);
+        })->with('languages')->paginate(6);
         return BookResource::collection($books);
     }
 

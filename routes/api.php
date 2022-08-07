@@ -35,6 +35,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/messages', [MessageController::class, 'index']);
 
   Route::get('/books',[BookController::class,'index']);
+
   Route::get('/categories',[CategoryController::class,'index']);
   Route::resource('/languages',LanguageController::class);
   Route::get('/authors',[AuthorController::class,'index']);
