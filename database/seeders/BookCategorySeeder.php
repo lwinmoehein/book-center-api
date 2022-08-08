@@ -19,10 +19,10 @@ class BookCategorySeeder extends Seeder
         $categories = Category::all();
 
         // Populate the pivot table
-        Book::all()->each(function ($book) use ($categories) { 
-            $book->categories()->attach(
+        Book::all()->each(function ($book) use ($categories) {
+            $book->categories()->sync(
                 $categories->random(rand(1, 3))->pluck('id')->toArray()
-            ); 
+            );
         });
     }
 }

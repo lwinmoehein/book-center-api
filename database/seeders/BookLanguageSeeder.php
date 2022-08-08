@@ -20,7 +20,7 @@ class BookLanguageSeeder extends Seeder
 
         // Populate the pivot table
         Book::all()->each(function ($book) use ($languages) {
-            $book->languages()->attach(
+            $book->languages()->sync(
                 $languages->random(rand(1, 2))->pluck('id')->toArray()
             );
         });

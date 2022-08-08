@@ -19,10 +19,10 @@ class AuthorBookSeeder extends Seeder
         $authors = Author::all();
 
         // Populate the pivot table
-        Book::all()->each(function ($book) use ($authors) { 
-            $book->authors()->attach(
+        Book::all()->each(function ($book) use ($authors) {
+            $book->authors()->sync(
                 $authors->random(rand(1, 3))->pluck('id')->toArray()
-            ); 
+            );
         });
     }
 }
