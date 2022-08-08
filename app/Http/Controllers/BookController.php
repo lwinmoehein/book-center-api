@@ -42,10 +42,12 @@ class BookController extends Controller
         $userCategories = Auth::user()->categories->pluck('id');
         $languages = request()->languages;
 
+
         $bookQuery = Book::query()->categorized($userCategories);
 
         if ($languages != null)
             $languages = explode(',', $languages);
+
 
         if($languages!=null && count($languages)>0)
             $bookQuery = $bookQuery->languaged($languages);
