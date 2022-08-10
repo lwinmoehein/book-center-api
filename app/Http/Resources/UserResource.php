@@ -21,6 +21,7 @@ class UserResource extends JsonResource
           'avatar' => $this->avatar,
           'isAdmin' => $this->isAdmin(),
           'emailVerified' => $this->email_verified_at,
+          'categories_count'=>$this->isAdmin()?0:$this->categories_count
         ];
     }
 }

@@ -9,6 +9,6 @@ class AuthController extends Controller
 {
     public function __invoke()
     {
-        return new UserResource(Auth::user());
+        return new UserResource(Auth::user()->loadCount('categories'));
     }
 }
