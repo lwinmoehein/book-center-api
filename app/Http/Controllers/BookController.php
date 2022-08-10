@@ -49,7 +49,7 @@ class BookController extends Controller
             $languages = explode(',', $languages);
 
 
-        if($languages!=null && count($languages)>0)
+        if ($languages != null && count($languages) > 0)
             $bookQuery = $bookQuery->languaged($languages);
 
         $books = $bookQuery->paginate(6)->appends(request()->except(['page', '_token']));
@@ -85,6 +85,8 @@ class BookController extends Controller
     public function show(Book $book)
     {
         //
+        $book->load('categories','authors');
+        return new BookResource($book);
     }
 
     /**

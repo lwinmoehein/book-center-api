@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/messages', [MessageController::class, 'index']);
 
   Route::get('/books',[BookController::class,'index']);
+  Route::get('/books/{book}',[BookController::class,'show']);
+
 
   Route::get('/categories',[CategoryController::class,'index']);
   Route::get('/categories/{category}',[CategoryController::class,'show']);
@@ -44,7 +46,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
   Route::post('/users/category',[UserController::class,'updateCategories']);
   Route::get('/user-categories',[UserController::class,'categories']);
-  Route::get('/books/category',[BookController::class,'forYou']);
+  Route::get('/recommended-books',[BookController::class,'forYou']);
 
 });
 
