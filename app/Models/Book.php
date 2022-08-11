@@ -28,9 +28,7 @@ class Book extends Model
      *
      * @var array
      */
-    protected $hidden = [
-
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast to native types.
@@ -38,7 +36,7 @@ class Book extends Model
      * @var array
      */
     protected $casts = [
-      'published_at'=>'datetime'
+        'published_at' => 'datetime'
     ];
 
     public function authors()
@@ -46,26 +44,32 @@ class Book extends Model
         return $this->belongsToMany(Author::class);
     }
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 
-    public function languages(){
+    public function languages()
+    {
         return $this->belongsToMany(Language::class);
     }
 
-    public function scopeLanguaged($query,$languages)
+    public function reviews()
     {
-        return $query->whereHas('languages', function($q) use($languages) {
+        return $this->hasMany(Review::class);
+    }
+
+    public function scopeLanguaged($query, $languages)
+    {
+        return $query->whereHas('languages', function ($q) use ($languages) {
             $q->whereIn('languages.id', $languages);
         });
     }
 
-    public function scopeCategorized($query,$categories)
+    public function scopeCategorized($query, $categories)
     {
-        return $query->whereHas('categories', function($q) use($categories) {
+        return $query->whereHas('categories', function ($q) use ($categories) {
             $q->whereIn('categories.id', $categories);
         });
     }
-
 }

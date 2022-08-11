@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
           AuthorBookSeeder::class,
           BookCategorySeeder::class,
           LanguageSeeder::class,
-          BookLanguageSeeder::class
+          BookLanguageSeeder::class,
+          ReviewSeeder::class
          ]);
     }
 }

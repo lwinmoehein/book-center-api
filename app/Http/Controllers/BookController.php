@@ -85,7 +85,7 @@ class BookController extends Controller
     public function show(Book $book)
     {
         //
-        $book->load('categories','authors');
+        $book->load('categories','authors','reviews');
         return new BookResource($book);
     }
 

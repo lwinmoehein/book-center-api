@@ -20,6 +20,7 @@ class BookResource extends JsonResource
             'title'=>$this->title,
             'authors' => AuthorResource::collection($this->authors),
             'categories' => CategoryResource::collection($this->categories),
+            'reviews'=>ReviewResource::collection($this->reviews),
             'cover_url'=>$this->cover_url,
             'description'=>$this->description,
             'price'=>$this->price,

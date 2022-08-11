@@ -10,6 +10,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::post('/users/category',[UserController::class,'updateCategories']);
   Route::get('/user-categories',[UserController::class,'categories']);
   Route::get('/recommended-books',[BookController::class,'forYou']);
+
+  Route::get('/reviews',[ReviewController::class,'index']);
 
 });
 

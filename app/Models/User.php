@@ -46,15 +46,21 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin(): bool
     {
-      return $this->is_admin;
+        return $this->is_admin;
     }
 
     public function messages()
     {
-      return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class);
     }
 
-    public function categories(){
-      return $this->belongsToMany(Category::class);
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
