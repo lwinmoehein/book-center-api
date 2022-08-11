@@ -85,7 +85,10 @@ class BookController extends Controller
     public function show(Book $book)
     {
         //
-        $book->load('categories','authors','reviews');
+        $book->load('categories','authors');
+        $book->load(['reviews' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
         return new BookResource($book);
     }
 

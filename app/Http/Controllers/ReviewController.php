@@ -48,10 +48,13 @@ class ReviewController extends Controller
         $isReviewCreated = Review::create([
             "user_id"=>Auth::user()->id,
             "book_id"=>$request->book_id,
-            "star"=>4,
+            "star"=>$request->star,
             "body"=>$request->body
         ]);
-        $book->load('categories','authors','reviews');
+        $book->load('categories','authors');
+        $book->load(['reviews' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
         return new BookResource($book);
     }
 
