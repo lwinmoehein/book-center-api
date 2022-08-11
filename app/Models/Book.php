@@ -59,6 +59,7 @@ class Book extends Model
         return $this->hasMany(Review::class);
     }
 
+
     public function scopeLanguaged($query, $languages)
     {
         return $query->whereHas('languages', function ($q) use ($languages) {

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreReviewRequest;
+use App\Http\Resources\BookResource;
 use App\Http\Resources\ReviewResource;
+use App\Models\Book;
 use App\Models\Review;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -37,9 +40,19 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreReviewRequest $request)
     {
         //
+        $book = Book::findOrFail($request->book_id);
+
+        $isReviewCreated = Review::create([
+            "user_id"=>Auth::user()->id,
+            "book_id"=>$request->book_id,
+            "star"=>4,
+            "body"=>$request->body
+        ]);
+        $book->load('categories','authors','reviews');
+        return new BookResource($book);
     }
 
     /**

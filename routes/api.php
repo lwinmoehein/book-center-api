@@ -50,6 +50,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/recommended-books',[BookController::class,'forYou']);
 
   Route::get('/reviews',[ReviewController::class,'index']);
+  Route::post('/reviews',[ReviewController::class,'store']);
+
 
 });
 
