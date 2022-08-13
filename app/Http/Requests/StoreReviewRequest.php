@@ -24,9 +24,16 @@ class StoreReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'book_id'=>'required',
-            'star'=>'required',
-            'body'=>'required'
+            'book_id' => 'required',
+            'star' => 'required',
+            'body'=>'max:200'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'star.required' => 'Please give at least 1 star.',
+            'body.max' => 'Please reduce the number of review words.',
         ];
     }
 }

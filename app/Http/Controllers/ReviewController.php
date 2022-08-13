@@ -45,13 +45,20 @@ class ReviewController extends Controller
         //
         $book = Book::findOrFail($request->book_id);
 
+        $review = Review::where('user_id',Auth::user()->id)->where('book_id',$request->book_id)->get()->first();
+
+        if($review!=null)
+            return  response()->json(["message" => "You can only review once for a book."], 409);
+
+
         $isReviewCreated = Review::create([
-            "user_id"=>Auth::user()->id,
-            "book_id"=>$request->book_id,
-            "star"=>$request->star,
-            "body"=>$request->body
+            "user_id" => Auth::user()->id,
+            "book_id" => $request->book_id,
+            "star" => $request->star,
+            "body" => isset($request->body)?$request->body:""
         ]);
-        $book->load('categories','authors');
+
+        $book->load('categories', 'authors');
         $book->load(['reviews' => function ($query) {
             $query->orderBy('created_at', 'desc');
         }]);
