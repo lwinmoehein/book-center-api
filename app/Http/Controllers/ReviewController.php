@@ -9,6 +9,7 @@ use App\Models\Book;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateReviewRequest;
 
 class ReviewController extends Controller
 {
@@ -45,9 +46,9 @@ class ReviewController extends Controller
         //
         $book = Book::findOrFail($request->book_id);
 
-        $review = Review::where('user_id',Auth::user()->id)->where('book_id',$request->book_id)->get()->first();
+        $review = Review::where('user_id', Auth::user()->id)->where('book_id', $request->book_id)->get()->first();
 
-        if($review!=null)
+        if ($review != null)
             return  response()->json(["message" => "You can only review once for a book."], 409);
 
 
@@ -55,7 +56,7 @@ class ReviewController extends Controller
             "user_id" => Auth::user()->id,
             "book_id" => $request->book_id,
             "star" => $request->star,
-            "body" => isset($request->body)?$request->body:""
+            "body" => isset($request->body) ? $request->body : ""
         ]);
 
         $book->load('categories', 'authors');
@@ -94,9 +95,19 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(UpdateReviewRequest $request, Review $review)
     {
         //
+        $review->update([
+            "star" => $request->star,
+            "body" => isset($request->body) ? $request->body : ""
+        ]);
+        $book = Book::findOrFail($review->book_id);
+        $book->load('categories', 'authors');
+        $book->load(['reviews' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
+        return new BookResource($book);
     }
 
     /**

@@ -51,7 +51,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
   Route::get('/reviews',[ReviewController::class,'index']);
   Route::post('/reviews',[ReviewController::class,'store']);
-
+  Route::patch('/reviews/{review}',[ReviewController::class,'update']);
 
 });
 
