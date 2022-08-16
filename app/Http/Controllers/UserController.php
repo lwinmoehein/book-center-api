@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePreferedCategories;
@@ -45,7 +44,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         if (Auth::user()->isAdmin()) {
-          return new UserResource($user);
+            return new UserResource($user);
         }
         return  response()->json(["message" => "Forbidden"], 403);
     }
@@ -73,14 +72,17 @@ class UserController extends Controller
         //
     }
 
-    public function categories(){
+    public function categories()
+    {
         $categories = Auth::user()->categories;
         return CategoryResource::collection($categories);
     }
 
-    public function updateCategories(UpdatePreferedCategories $request){
+    public function updateCategories(UpdatePreferedCategories $request)
+    {
         Auth::user()->categories()->sync($request->category_ids);
         return  response()->json(["message" => "success"], 200);
-
     }
+
+
 }

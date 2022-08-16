@@ -73,4 +73,15 @@ class Book extends Model
             $q->whereIn('categories.id', $categories);
         });
     }
+
+    public function wantToReadUsers()
+    {
+        return $this->belongsToMany(User::class, 'want_to_read_books', 'book_id', 'user_id');
+    }
+    public function scopeWantToRead($query, $userId)
+    {
+        return $query->whereHas('wantToReadUsers', function ($q) use ($userId) {
+            $q->whereIn('wantToReadUsers.user_id', $userId);
+        });
+    }
 }

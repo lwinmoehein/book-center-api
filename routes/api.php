@@ -11,6 +11,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WantToReadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::post('/reviews',[ReviewController::class,'store']);
   Route::patch('/reviews/{review}',[ReviewController::class,'update']);
   Route::delete('/reviews/{review}',[ReviewController::class,'destroy']);
+
+  Route::post('/want-to-reads',[WantToReadController::class,'store']);
+  Route::get('/want-to-reads',[WantToReadController::class,'index']);
+
 });
 
