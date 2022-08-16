@@ -57,6 +57,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
   Route::post('/want-to-reads',[WantToReadController::class,'store']);
   Route::get('/want-to-reads',[WantToReadController::class,'index']);
+  Route::post('/want-to-reads/sync',[WantToReadController::class,'sync']);
+  Route::delete('/want-to-reads',[WantToReadController::class,'destroy']);
 
 });
 

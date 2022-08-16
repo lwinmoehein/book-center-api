@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreWantToReadRequest;
+use App\Http\Requests\UpdateWantToReadRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Book;
 use App\Http\Resources\BookResource;
@@ -20,7 +21,18 @@ class WantToReadController extends Controller
 
     public function store(StoreWantToReadRequest $request)
     {
+        Auth::user()->wantToReadBooks()->attach($request->book_id);
+        return  response()->json(["message" => "success"], 200);
+    }
+    public function update(UpdateWantToReadRequest $request)
+    {
         Auth::user()->wantToReadBooks()->sync($request->book_ids);
+        return  response()->json(["message" => "success"], 200);
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::user()->wantToReadBooks()->detach($request->book_id);
         return  response()->json(["message" => "success"], 200);
     }
 }

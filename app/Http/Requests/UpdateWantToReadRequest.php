@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreWantToReadRequest extends FormRequest
+class UpdateWantToReadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,7 @@ class StoreWantToReadRequest extends FormRequest
     {
         return [
             //
-            'book_id' => 'integer'
-        ];
-    }
-    public function messages()
-    {
-        return [
-            'book_id' => 'Please select at least one book.',
+            'book_ids'=>'array'
         ];
     }
 }
