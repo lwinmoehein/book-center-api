@@ -19,6 +19,19 @@ class WantToReadController extends Controller
         return BookResource::collection($books);
     }
 
+    public function show(Book $book)
+    {
+        $userId = Auth::user()->id;
+        $bookId = $book->id;
+
+        $wantToReadBooks = Book::whereHas('wantToReadUsers', function ($query) use ($userId,$bookId) {
+            return $query->where('user_id', '=', $userId)->where('book_id','=',$bookId);
+        })->get();
+
+
+        return BookResource::collection($wantToReadBooks);
+    }
+
     public function store(StoreWantToReadRequest $request)
     {
         Auth::user()->wantToReadBooks()->attach($request->book_id);
@@ -30,9 +43,9 @@ class WantToReadController extends Controller
         return  response()->json(["message" => "success"], 200);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Book $book)
     {
-        Auth::user()->wantToReadBooks()->detach($request->book_id);
+        Auth::user()->wantToReadBooks()->detach($book->id);
         return  response()->json(["message" => "success"], 200);
     }
 }
