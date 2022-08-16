@@ -119,5 +119,15 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         //
+        $book = Book::findOrFail($review->book_id);
+        $book = Book::findOrFail($review->book_id);
+
+        $review->delete();
+
+        $book->load('categories', 'authors');
+        $book->load(['reviews' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
+        return new BookResource($book);
     }
 }
