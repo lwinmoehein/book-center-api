@@ -14,7 +14,7 @@ class WantToReadController extends Controller
     public function index()
     {
 
-        $books = Book::query()->wantToRead(Auth::user()->id)->paginate(6)->appends(request()->except(['page', '_token']));
+        $books = Auth::user()->wantToReadBooks()->paginate(6)->appends(request()->except(['page', '_token']));
         return BookResource::collection($books);
     }
 

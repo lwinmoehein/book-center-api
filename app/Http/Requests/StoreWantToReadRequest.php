@@ -25,13 +25,13 @@ class StoreWantToReadRequest extends FormRequest
     {
         return [
             //
-            'book_ids' => 'array|required'
+            'book_ids' => 'array'
         ];
     }
     public function messages()
     {
         return [
-            'book_ids.required' => 'Please select at least one book.',
+            'book_ids' => 'Please select at least one book.',
         ];
     }
 }
