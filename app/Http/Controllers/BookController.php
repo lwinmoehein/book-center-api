@@ -31,7 +31,7 @@ class BookController extends Controller
         if ($categories != null && count($categories) > 0)
             $booksQuery = $booksQuery->categorized($categories);
 
-        $books = $booksQuery->paginate(6)->appends(request()->except(['page', '_token']));
+        $books = $booksQuery->orderBy('created_at','desc')->paginate(6)->appends(request()->except(['page', '_token']));
         return BookResource::collection($books);
     }
 
