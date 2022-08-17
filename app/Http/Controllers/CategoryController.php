@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Resources\CategoryResource;
-
+use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Http\Resources\BookResource;
 
 class CategoryController extends Controller
 {
@@ -51,11 +52,24 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
-        $category = $category->load('books');
+        $category = $category->load('books', 'books.averageRating');
         return response()->json([
-            "data"=>$category
+            "data" => new CategoryResource($category)
         ]);
+    }
+    public function getBooks(Category $category)
+    {
+        $languages = request()->languages;
+        $categories = [$category->id];
 
+        $booksQuery = Book::query();
+        if ($languages != null && count($languages) > 0)
+            $booksQuery = $booksQuery->languaged($languages);
+        if ($categories != null && count($categories) > 0)
+            $booksQuery = $booksQuery->categorized($categories);
+
+        $books = $booksQuery->with('averageRating')->orderBy('created_at', 'desc')->paginate(10)->appends(request()->except(['page', '_token']));
+        return BookResource::collection($books);
     }
 
     /**
