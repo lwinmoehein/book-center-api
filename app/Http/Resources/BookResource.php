@@ -18,6 +18,7 @@ class BookResource extends JsonResource
             'id'=>$this->id,
             'code'=>$this->code,
             'title'=>$this->title,
+            'average_rating'=>$this->averageRating->first()!=null?$this->averageRating->first()->value:0,
             'authors' => AuthorResource::collection($this->authors),
             'categories' => CategoryResource::collection($this->categories),
             'reviews'=>ReviewResource::collection($this->reviews),

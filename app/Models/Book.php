@@ -79,4 +79,11 @@ class Book extends Model
         return $this->belongsToMany(User::class, 'want_to_read_books', 'book_id', 'user_id')->withTimestamps();
     }
 
+
+    public function averageRating()
+    {
+        return $this->reviews()
+            ->selectRaw('avg(star) as value, book_id')
+            ->groupBy('book_id');
+    }
 }
