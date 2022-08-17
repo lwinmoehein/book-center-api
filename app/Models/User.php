@@ -66,6 +66,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function wantToReadBooks()
     {
-        return $this->belongsToMany(Book::class, 'want_to_read_books', 'user_id', 'book_id');
+        return $this->belongsToMany(Book::class, 'want_to_read_books', 'user_id', 'book_id')->withTimestamps();
     }
 }

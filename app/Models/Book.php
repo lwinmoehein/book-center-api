@@ -76,7 +76,7 @@ class Book extends Model
 
     public function wantToReadUsers()
     {
-        return $this->belongsToMany(User::class, 'want_to_read_books', 'book_id', 'user_id');
+        return $this->belongsToMany(User::class, 'want_to_read_books', 'book_id', 'user_id')->withTimestamps();
     }
 
 }
