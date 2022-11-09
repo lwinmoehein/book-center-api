@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'http://lwinmoehein.com/api/*',
+        'https://polar-island-51022.herokuapp.com/*',
     ];
 }
