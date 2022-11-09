@@ -1,44 +1,33 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Laravel Vue SPA - API</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Nunito';
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-color: azure;
-    }
-
-    article {
-      padding: 2rem;
-      text-align: center;
-      background-color: white;
-      max-width: 48rem;
-      margin: 0 auto;
-      border: 1px solid #eee;
-      border-top: none;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <title>laravel-vue</title>
+    <link href="/js/dashboard.b56292b3.js" rel="prefetch">
+    <link href="/js/forgot-password.3bc96108.js" rel="prefetch">
+    <link href="/js/forgot-password~login~register~user.367af187.js" rel="prefetch">
+    <link href="/js/home.505f6ab4.js" rel="prefetch">
+    <link href="/js/login.732526ec.js" rel="prefetch">
+    <link href="/js/not-found.c853eda5.js" rel="prefetch">
+    <link href="/js/register.d904b27b.js" rel="prefetch">
+    <link href="/js/reset-password.81abf779.js" rel="prefetch">
+    <link href="/js/user.4f70b106.js" rel="prefetch">
+    <link href="/js/users.11a65f94.js" rel="prefetch">
+    <link href="/css/app.18d2376e.css" rel="preload" as="style">
+    <link href="/js/app.97291c4e.js" rel="preload" as="script">
+    <link href="/js/chunk-vendors.334e7bfe.js" rel="preload" as="script">
+    <link href="/css/app.18d2376e.css" rel="stylesheet">
 </head>
 
-<body>
-  <article>
-    <h1>Laravel Vue SPA - API</h1>
-    <p>Docs for how this application is built can be found at:
-      <a href="https://laravelvuespa.com/">laravelvuespa.com</a>
-    </p>
-  </article>
+<body><noscript><strong>We're sorry but laravel-vue doesn't work properly without JavaScript enabled. Please enable it
+            to continue.</strong></noscript>
+    <div id="app"></div>
+    <script src="/js/chunk-vendors.334e7bfe.js"></script>
+    <script src="/js/app.97291c4e.js"></script>
 </body>
 
 </html>
