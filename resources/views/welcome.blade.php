@@ -15,19 +15,19 @@
     <link href="/js/not-found.c853eda5.js" rel="prefetch">
     <link href="/js/register.d904b27b.js" rel="prefetch">
     <link href="/js/reset-password.81abf779.js" rel="prefetch">
-    <link href="/js/user.4f70b106.js" rel="prefetch">
+    <link href="/js/user.07282674.js" rel="prefetch">
     <link href="/js/users.11a65f94.js" rel="prefetch">
-    <link href="/css/app.18d2376e.css" rel="preload" as="style">
-    <link href="/js/app.192966d7.js" rel="preload" as="script">
+    <link href="/css/app.e0014b86.css" rel="preload" as="style">
+    <link href="/js/app.571fc98a.js" rel="preload" as="script">
     <link href="/js/chunk-vendors.334e7bfe.js" rel="preload" as="script">
-    <link href="/css/app.18d2376e.css" rel="stylesheet">
+    <link href="/css/app.e0014b86.css" rel="stylesheet">
 </head>
 
 <body><noscript><strong>We're sorry but laravel-vue doesn't work properly without JavaScript enabled. Please enable it
             to continue.</strong></noscript>
     <div id="app"></div>
     <script src="/js/chunk-vendors.334e7bfe.js"></script>
-    <script src="/js/app.192966d7.js"></script>
+    <script src="/js/app.571fc98a.js"></script>
 </body>
 
 </html>
