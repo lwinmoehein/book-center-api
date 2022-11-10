@@ -18,7 +18,7 @@
     <link href="/js/user.4f70b106.js" rel="prefetch">
     <link href="/js/users.11a65f94.js" rel="prefetch">
     <link href="/css/app.18d2376e.css" rel="preload" as="style">
-    <link href="/js/app.6a7b668e.js" rel="preload" as="script">
+    <link href="/js/app.4bb97ff1.js" rel="preload" as="script">
     <link href="/js/chunk-vendors.334e7bfe.js" rel="preload" as="script">
     <link href="/css/app.18d2376e.css" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
             to continue.</strong></noscript>
     <div id="app"></div>
     <script src="/js/chunk-vendors.334e7bfe.js"></script>
-    <script src="/js/app.6a7b668e.js"></script>
+    <script src="/js/app.4bb97ff1.js"></script>
 </body>
 
 </html>
