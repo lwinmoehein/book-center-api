@@ -10,7 +10,7 @@
     <link href="/js/dashboard.b56292b3.js" rel="prefetch">
     <link href="/js/forgot-password.3bc96108.js" rel="prefetch">
     <link href="/js/forgot-password~login~register~user.367af187.js" rel="prefetch">
-    <link href="/js/home.505f6ab4.js" rel="prefetch">
+    <link href="/js/home.9c8ff869.js" rel="prefetch">
     <link href="/js/login.732526ec.js" rel="prefetch">
     <link href="/js/not-found.c853eda5.js" rel="prefetch">
     <link href="/js/register.d904b27b.js" rel="prefetch">
@@ -18,7 +18,7 @@
     <link href="/js/user.4f70b106.js" rel="prefetch">
     <link href="/js/users.11a65f94.js" rel="prefetch">
     <link href="/css/app.18d2376e.css" rel="preload" as="style">
-    <link href="/js/app.4bb97ff1.js" rel="preload" as="script">
+    <link href="/js/app.b4b4a6b0.js" rel="preload" as="script">
     <link href="/js/chunk-vendors.334e7bfe.js" rel="preload" as="script">
     <link href="/css/app.18d2376e.css" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
             to continue.</strong></noscript>
     <div id="app"></div>
     <script src="/js/chunk-vendors.334e7bfe.js"></script>
-    <script src="/js/app.4bb97ff1.js"></script>
+    <script src="/js/app.b4b4a6b0.js"></script>
 </body>
 
 </html>
