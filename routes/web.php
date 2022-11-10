@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function ($verified) {
+Route::get('/dashboard', function () {
     return response()->redirect('/');
 });
