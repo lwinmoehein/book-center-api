@@ -8,17 +8,17 @@
     <link rel="icon" href="/favicon.ico">
     <title>laravel-vue</title>
     <link href="/js/dashboard.b56292b3.js" rel="prefetch">
-    <link href="/js/forgot-password.3bc96108.js" rel="prefetch">
+    <link href="/js/forgot-password.5560a71d.js" rel="prefetch">
     <link href="/js/forgot-password~login~register~user.367af187.js" rel="prefetch">
     <link href="/js/home.9c8ff869.js" rel="prefetch">
     <link href="/js/login.732526ec.js" rel="prefetch">
     <link href="/js/not-found.c853eda5.js" rel="prefetch">
-    <link href="/js/register.d904b27b.js" rel="prefetch">
+    <link href="/js/register.5a1e5c40.js" rel="prefetch">
     <link href="/js/reset-password.81abf779.js" rel="prefetch">
     <link href="/js/user.07282674.js" rel="prefetch">
     <link href="/js/users.11a65f94.js" rel="prefetch">
     <link href="/css/app.e0014b86.css" rel="preload" as="style">
-    <link href="/js/app.b96799e9.js" rel="preload" as="script">
+    <link href="/js/app.dd444061.js" rel="preload" as="script">
     <link href="/js/chunk-vendors.334e7bfe.js" rel="preload" as="script">
     <link href="/css/app.e0014b86.css" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
             to continue.</strong></noscript>
     <div id="app"></div>
     <script src="/js/chunk-vendors.334e7bfe.js"></script>
-    <script src="/js/app.b96799e9.js"></script>
+    <script src="/js/app.dd444061.js"></script>
 </body>
 
 </html>
