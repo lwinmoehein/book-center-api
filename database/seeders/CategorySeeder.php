@@ -15,8 +15,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         //
-        Category::factory()
-        ->count(10)
-        ->create();
+        Category::create(['name'=>'Classic Literature']);
+        Category::create(['name'=>'Dystopian Fiction']);
+        Category::create(['name'=>'Science Fiction']);
+        Category::create(['name'=>'Southern Gothic']);
+        Category::create(['name'=>'Fantasy']);
+        Category::create(['name'=>'Romance']);
+        Category::create(['name'=>'Adventure']);
+        Category::create(['name'=>'Gothic Fiction']);
+        Category::create(['name'=>'Coming-of-Age']);
+        Category::create(['name'=>'Post-Apocalyptic Fiction']);
+
     }
 }

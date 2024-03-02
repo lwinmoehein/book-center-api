@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->text('cover_url')->nullable();
             $table->text('description')->nullable();
             $table->float('price')->nullable();
-            $table->date('published_at')->nullable();
+            $table->string('published_at')->nullable();
             $table->timestamps();
         });
     }

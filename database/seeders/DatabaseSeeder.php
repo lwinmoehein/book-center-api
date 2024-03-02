@@ -24,12 +24,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
           CategorySeeder::class,
           AuthorSeeder::class,
-          BookSeeder::class,
-          AuthorBookSeeder::class,
-          BookCategorySeeder::class,
-          LanguageSeeder::class,
-          BookLanguageSeeder::class,
-          ReviewSeeder::class
+            LanguageSeeder::class,
+            BookSeeder::class,
+            BookCategorySeeder::class,
+            AuthorBookSeeder::class
          ]);
     }
 }

@@ -14,9 +14,24 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        
-        Author::factory()
-        ->count(15)
-        ->create();
+
+        Author::create(['name'=>'F. Scott Fitzgerald']);
+        Author::create(['name'=>'George Orwell']);
+        Author::create(['name'=>'Douglas Adams']);
+        Author::create(['name'=>'Harper Lee']);
+        Author::create(['name'=>'J.K. Rowling']);
+        Author::create(['name'=>'Jane Austen']);
+        Author::create(['name'=>'J.R.R. Tolkien']);
+        Author::create(['name'=>'J.D. Salinger']);
+        Author::create(['name'=>'Herman Melville']);
+        Author::create(['name'=>'C.S. Lewis']);
+        Author::create(['name'=>'Oscar Wilde']);
+        Author::create(['name'=>'Aldous Huxley']);
+        Author::create(['name'=>'Charlotte Brontë']);
+        Author::create(['name'=>'J.R.R. Tolkien']);
+        Author::create(['name'=>'Mary Shelley']);
+        Author::create(['name'=>'Cormac McCarthy']);
+
+
     }
 }

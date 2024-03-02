@@ -16,8 +16,8 @@ class LanguageController extends Controller
     public function index()
     {
         //
-        $categories = Language::all();
-        return LanguageResource::collection($categories);
+        $languages = Language::orderBy('name')->get();
+        return LanguageResource::collection($languages);
     }
 
     /**
