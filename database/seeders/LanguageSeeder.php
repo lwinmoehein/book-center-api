@@ -15,8 +15,6 @@ class LanguageSeeder extends Seeder
     public function run()
     {
         //
-        Language::create(["name" => "Arabic"]);
-
         Language::create(["name" => "English"]);
 
         Language::create(["name" => "Myanmar"]);

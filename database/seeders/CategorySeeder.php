@@ -26,5 +26,6 @@ class CategorySeeder extends Seeder
         Category::create(['name'=>'Coming-of-Age']);
         Category::create(['name'=>'Post-Apocalyptic Fiction']);
 
+
     }
 }

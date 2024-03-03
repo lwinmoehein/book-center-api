@@ -31,7 +31,7 @@ class AuthorSeeder extends Seeder
         Author::create(['name'=>'J.R.R. Tolkien']);
         Author::create(['name'=>'Mary Shelley']);
         Author::create(['name'=>'Cormac McCarthy']);
-
-
+        Author::create(['name'=>'ချမ်းမြေ့၀င်း']);
+        Author::create(['name'=>'ဗန်းမော်တင်အောင်']);
     }
 }
